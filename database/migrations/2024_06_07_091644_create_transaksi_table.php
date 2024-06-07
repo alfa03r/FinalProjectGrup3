@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
+            $table->string("no_fak");
+            $table->unsignedBigInteger('id_customer'); 
+            $table->foreign('id_customer')->references('id')->on('customer');
+            $table->unsignedBigInteger('id_barang'); 
+            $table->foreign('id_barang')->references('id')->on('barang');
+            $table->integer("jlh_trans");
             $table->timestamps();
         });
     }

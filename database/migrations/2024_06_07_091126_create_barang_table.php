@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string("nama");
             $table->string("jenis");
+            $table->unsignedBigInteger('id_merk'); 
+            $table->foreign('id_merk')->references('id')->on('merk');
             $table->integer("harga");
             $table->integer("stok");
-            $table->string("satuang");
+            $table->string("satuan");
             $table->timestamps();
         });
     }

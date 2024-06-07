@@ -74,10 +74,10 @@
             </header>
             
 <div class="page-heading">
-    <h3>@include('title')</h3>
+    {{-- <h3>@include('title')</h3> --}}
 </div> 
 <div class="page-content"> 
-    @yield('content')
+    {{-- @yield('content') --}}
 </div>
 
            @include('partial.footer')

@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
+            $table->foreign('id')->references('id')->on('data_customer');
             $table->string("nama_cus");
             $table->string("email");
-            $table->string("phone");
-            $table->string("alamat");
-            $table->string("kode_pos");
-            $table->string("kota");
             $table->timestamps();
         });
     }
