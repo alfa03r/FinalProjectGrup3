@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DataCustomerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,4 @@ Route::get('/', function () {
 Route::resource('/merk', MerkController::class);
 
 Route::resource('barang', BarangController::class);    
+Route::resource('data_customer', DataCustomerController::class);
