@@ -12,7 +12,8 @@ class DataCustomerController extends Controller
      */
     public function index()
     {
-        //
+        $data_customer = DataCustomer::all();
+        return view("data_customer.index", ["data_customer" => $data_customer]);
     }
 
     /**
@@ -20,7 +21,7 @@ class DataCustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view("data_customer.add");
     }
 
     /**
@@ -28,7 +29,21 @@ class DataCustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'phone' => 'required|min:10',
+            'alamat' => 'required',
+            'kd_pos' => 'required',
+            'kota' => 'required',
+        ]);
+
+        DataCustomer::create([
+    		'phone' => $request->phone,
+    		'alamat' => $request->alamat,
+            'kd_pos' => $request->kd_pos,
+            'kota' => $request->kota
+    	]);
+
+        return redirect('/data_customer');
     }
 
     /**
@@ -58,8 +73,10 @@ class DataCustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DataCustomer $dataCustomer)
+    public function destroy(string $id)
     {
-        //
+        $data_customer = DataCustomer::find($id);
+        $data_customer->delete();
+        return redirect('/data_customer');
     }
 }
