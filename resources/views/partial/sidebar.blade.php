@@ -9,7 +9,7 @@
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="/" class='sidebar-link'>
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                     <span>Costumer</span>
                 </a>
@@ -26,6 +26,13 @@
                 <a href="/barang" class='sidebar-link'>
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span>Barang</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item">
+                <a href="/data_customer " class='sidebar-link'>
+                <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                    <span>Data Customer</span>
                 </a>
             </li>
             <li
