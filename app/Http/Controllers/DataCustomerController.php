@@ -47,25 +47,27 @@ class DataCustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specifixed resource.
      */
-    public function show(DataCustomer $dataCustomer)
+    public function show(string $id)
     {
-        //
+        $data_customer = DataCustomer::find($id);
+        return view("data_customer.show", ['data_customer' => $data_customer]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(DataCustomer $dataCustomer)
+    public function edit(string $id)
     {
-        //
+        $data_customer = DataCustomer::find($id);
+        return view("data_customer.edit", ['data_customer' => $data_customer]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, DataCustomer $dataCustomer)
+    public function update(Request $request, string $id)
     {
         //
     }
