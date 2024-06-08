@@ -69,7 +69,21 @@ class DataCustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'phone' => 'required|min:10',
+            'alamat' => 'required',
+            'kd_pos' => 'required',
+            'kota' => 'required',
+        ]);
+
+        $data_customer = DataCustomer::find($id);
+        $data_customer->phone = $request->phone;
+        $data_customer->alamat = $request->alamat;
+        $data_customer->kd_pos = $request->kd_pos;
+        $data_customer->kota = $request->kota;
+        $data_customer->update();
+        return redirect('/data_customer');
+
     }
 
     /**
