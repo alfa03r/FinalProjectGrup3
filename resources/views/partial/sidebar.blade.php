@@ -1,16 +1,12 @@
 <ul class="menu">
-            <li class="sidebar-title">Menu</li>
-            
+            <li class="sidebar-title">Menu</li>    
             <li
                 class="sidebar-item active ">
                 <a href="/" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
-                </a>
-                
-
+                </a> 
             </li>
-            
             <li
                 class="sidebar-item">
                 <a href="#" class='sidebar-link'>
@@ -20,14 +16,14 @@
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="/merk" class='sidebar-link'>
                     <i class="fa fa-address-card-o" aria-hidden="true"></i>
                     <span>Merk</span>
                 </a>
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="/barang" class='sidebar-link'>
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span>Barang</span>
                 </a>
