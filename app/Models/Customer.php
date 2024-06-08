@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
+    
     protected $table = "customer";
-    protected $fillable = ["nama_cus","email"];
+    protected $fillable = ["nama_cus" , "email"] ;
+
+
+    public function merk()
+    {
+        return $this->belongsTo(DataCustomer::class, 'id_data_customer');
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\DataCustomer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -9,56 +11,76 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $keyword = $request->input('keyword');
+        $customer = Customer::query();
+
+        if ($keyword) {
+            $customer->where('nama_cus', 'like', "%$keyword%")
+                   ->orWhere('email', 'like', "%$keyword%");
+        }
+
+        $customer = $customer->paginate(10);
+
+        return view('customer.index', compact('customer', 'keyword'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $data_customer = DataCustomer::all();
+        return view('customer.create', compact('data_customer'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_cus' => 'required',
+            'email' => 'required',
+            'id_data_customer' => 'required|exists:data_customer,id',
+        ]);
+
+        Customer::create([
+            'nama_cus' => $request->nama_cus,
+            'email' => $request->email,
+            'id_data_customer' => $request->data_customer,
+        ]);
+
+        return redirect ('/customer')->with('success', 'Customer berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Customer $customer)
     {
-        //
+        return view('customer.show', compact('customer'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Customer $customer)
     {
-        //
+        $data_customer = DataCustomer::all();
+        return view('customer.edit', compact('customer', 'data_customer'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Customer $customer)
     {
-        //
+        $request->validate([
+            'nama_cus' => 'required',
+            'email' => 'required',
+            'id_data_customer' => 'required|exists:data_customer,id',
+        ]);
+
+        $customer->update([
+            'nama_cus' => $request->nama_cus,
+            'email' => $request->email,
+            'id_data_customer' => $request->id_data_customer,
+        ]);
+
+        return redirect ('/customer')->with('success', 'Customer berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route('customer.index')->with('success', 'Customer berhasil dihapus.');
     }
 }
+
