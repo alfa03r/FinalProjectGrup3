@@ -22,10 +22,10 @@
                 <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email" required>
             </div>
             <div class="form-group">
-                <label for="id_data_customer">Data Customer</label>
+                <label for="id_data_customer">Data Customer (By NO HP)</label>
                 <select class="form-control" id="id_data_customer" name="id_data_customer" required>
                     @foreach($data_customer as $data)
-                        <option value="{{ $data->id }}">{{ $data->nama_cus}}</option>
+                        <option value="{{ $data->id }}">{{ $data->phone}}</option>
                     @endforeach
                 </select>
             </div>

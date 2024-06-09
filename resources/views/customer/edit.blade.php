@@ -24,10 +24,10 @@
                 <input type="text" class="form-control" id="email" name="email" value="{{ $customer->email }}" required>
             </div>
             <div class="form-group">
-                <label for="id_data_customer">Data Customer</label>
+                <label for="id_data_customer">Data Customer(By NO HP)</label>
                 <select class="form-control" id="id_data_customer" name="id_data_customer" required>
                     @foreach($data_customer as $dc)
-                        <option value="{{ $dc->id }}" {{ $dc->id == $customer->id_data_customer? 'selected' : '' }}>{{ $dc->nama_cus}}</option>
+                        <option value="{{ $dc->id }}" {{ $dc->id == $customer->phone? 'selected' : '' }}>{{ $dc->phone}}</option>
                     @endforeach
                 </select>
             </div>
