@@ -5,6 +5,7 @@ use App\Http\Controllers\MerkController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DataCustomerController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::resource('/merk', MerkController::class);
 Route::resource('barang', BarangController::class);    
 Route::resource('data_customer', DataCustomerController::class);
 Route::resource('customer', CustomerController::class);
+Route::resource('transaksi', TransaksiController::class);
 
 Auth::routes();
 

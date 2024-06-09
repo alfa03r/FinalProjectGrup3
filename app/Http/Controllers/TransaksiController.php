@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Barang;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -20,7 +22,9 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        $barang = Barang::all();
+        $customer = Customer::all();
+        return view('transaksi.create', compact('barang','customer'));
     }
 
     /**
