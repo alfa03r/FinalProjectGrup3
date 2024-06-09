@@ -13,7 +13,7 @@
 
 Toko Harian Maju Jaya
 
-## ERD Online Shop Apotek
+## ERD Toko Harian Maju Jaya
 
 ![alt text](ERD_Final_Project_rev_3.png)
 
