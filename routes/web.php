@@ -6,6 +6,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DataCustomerController;
 use App\Http\Controllers\TransaksiController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\TransaksiController;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('home');
 });
 
 Route::resource('/merk', MerkController::class);
