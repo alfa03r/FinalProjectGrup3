@@ -9,9 +9,9 @@
             </li>
             <li
                 class="sidebar-item">
-                <a href="/" class='sidebar-link'>
+                <a href="/customer" class='sidebar-link'>
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    <span>Costumer</span>
+                    <span>Customer</span>
                 </a>
             </li>
             <li
