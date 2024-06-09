@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('home');
 });
 
 Route::resource('/merk', MerkController::class);
