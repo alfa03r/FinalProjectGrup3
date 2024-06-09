@@ -23,12 +23,15 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('/merk', MerkController::class);
 
-Route::resource('barang', BarangController::class);    
-Route::resource('data_customer', DataCustomerController::class);
-Route::resource('customer', CustomerController::class);
-Route::resource('/transaksi', TransaksiController::class);
+Route::middleware(['auth'])->group(function(){
+    Route::resource('/merk', MerkController::class);
+
+    Route::resource('barang', BarangController::class);    
+    Route::resource('data_customer', DataCustomerController::class);
+    Route::resource('customer', CustomerController::class);
+    Route::resource('/transaksi', TransaksiController::class);
+});
 
 Auth::routes();
 

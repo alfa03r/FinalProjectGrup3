@@ -42,4 +42,24 @@
                     <span>Transaksi</span>
                 </a>
             </li>
+            @guest
+                
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @endguest
+
+            @auth
+            <li class="sidebar-item" aria-labelledby="navbarDropdown">
+                <a class="sidebar-link" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+            @endauth
         </ul>
