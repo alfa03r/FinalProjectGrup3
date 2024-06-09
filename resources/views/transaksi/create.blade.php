@@ -34,8 +34,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="Jlh_trans">Jumlah Transaksi</label>
-                <input type="number" class="form-control" id="Jlh_trans" name="Jlh_trans" placeholder="Masukkan Jumlah Transaksi" required>
+                <label for="jlh_trans">Jumlah Transaksi</label>
+                <input type="number" class="form-control" id="jlh_trans" name="jlh_trans" placeholder="Masukkan Jumlah Transaksi" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
