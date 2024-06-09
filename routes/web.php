@@ -26,3 +26,7 @@ Route::resource('/merk', MerkController::class);
 Route::resource('barang', BarangController::class);    
 Route::resource('data_customer', DataCustomerController::class);
 Route::resource('customer', CustomerController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
