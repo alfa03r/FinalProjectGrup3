@@ -46,7 +46,7 @@ class TransaksiController extends Controller
             'id_barang' => $request->id_barang,
             'jlh_trans' => $request->jlh_trans,
         ]);
-        return redirect('/transaksi')->with('success', 'Barang berhasil ditambahkan.');
+        return redirect('/transaksi')->with('success', 'Transaksi berhasil ditambahkan.');
         // dd(@ $request->all() );
     }
 
@@ -63,7 +63,9 @@ class TransaksiController extends Controller
      */
     public function edit(Transaksi $transaksi)
     {
-        //
+        $barang = Barang::all();
+        $customer = Customer::all();
+        return view('transaksi.edit', compact('transaksi','barang','customer'));
     }
 
     /**
@@ -71,7 +73,20 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, Transaksi $transaksi)
     {
-        //
+        $request->validate([
+            'no_fak' => 'required',
+            'id_customer' => 'required|exists:customer,id',
+            'id_barang' => 'required|exists:barang,id',
+            'jlh_trans' => 'required',
+        ]);
+
+        $transaksi->update([
+            'no_fak' => $request->no_fak,
+            'id_customer' => $request->id_customer,
+            'id_barang' => $request->id_barang,
+            'jlh_trans' => $request->jlh_trans,
+        ]);
+        return redirect('/transaksi')->with('success', 'Transaksi Berhasil DI ubah.');
     }
 
     /**
