@@ -5,7 +5,7 @@
 ## Anggota Kelompok
 
 -   Muhammad Al Fajar
--   Febrian Mahendra 
+-   Febrian Mahendra
 -   Krisna Jorgi Hutauruk
 -   Muhammad Daffa Ardiansyah
 
