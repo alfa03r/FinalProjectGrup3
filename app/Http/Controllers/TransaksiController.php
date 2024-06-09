@@ -55,7 +55,7 @@ class TransaksiController extends Controller
      */
     public function show(Transaksi $transaksi)
     {
-        //
+        return view('transaksi.show', compact('transaksi'));
     }
 
     /**
