@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaksi;
+use App\Models\Barang;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -20,7 +22,9 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        $barang = Barang::all();
+        $customer = Customer::all();
+        return view('transaksi.create', compact('barang','customer'));
     }
 
     /**
@@ -28,7 +32,21 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no_fak' => 'required',
+            'id_customer' => 'required|exists:customer,id',
+            'id_barang' => 'required|exists:barang,id',
+            'jlh_trans' => 'required',
+        ]);
+
+        Transaksi::create([
+            'no_fak' => $request->no_fak,
+            'id_customer' => $request->id_customer,
+            'id_barang' => $request->id_barang,
+            'jlh_trans' => $request->jlh_trans,
+        ]);
+        return redirect('/transaksi')->with('success', 'Barang berhasil ditambahkan.');
+        // dd(@ $request->all() );
     }
 
     /**
