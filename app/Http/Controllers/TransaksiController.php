@@ -12,9 +12,10 @@ class TransaksiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $transaksi = Transaksi::all();
+        return view("transaksi.index", ["transaksi" => $transaksi]);
     }
 
     /**
@@ -78,6 +79,7 @@ class TransaksiController extends Controller
      */
     public function destroy(Transaksi $transaksi)
     {
-        //
+        $transaksi->delete();
+        return redirect()->route('transaksi.index')->with('success', 'Barang berhasil dihapus.');
     }
 }
