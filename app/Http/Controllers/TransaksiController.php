@@ -32,7 +32,21 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no_fak' => 'required',
+            'id_customer' => 'required|exists:customer,id',
+            'id_barang' => 'required|exists:barang,id',
+            'jlh_trans' => 'required',
+        ]);
+
+        Transaksi::create([
+            'no_fak' => $request->no_fak,
+            'id_customer' => $request->id_customer,
+            'id_barang' => $request->id_barang,
+            'jlh_trans' => $request->jlh_trans,
+        ]);
+        return redirect('/transaksi')->with('success', 'Barang berhasil ditambahkan.');
+        // dd(@ $request->all() );
     }
 
     /**

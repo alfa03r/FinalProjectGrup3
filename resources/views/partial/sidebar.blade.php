@@ -37,7 +37,7 @@
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="/transaksi" class='sidebar-link'>
                     <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                     <span>Transaksi</span>
                 </a>
