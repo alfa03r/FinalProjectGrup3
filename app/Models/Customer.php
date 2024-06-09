@@ -10,7 +10,7 @@ class Customer extends Model
     use HasFactory;
     
     protected $table = "customer";
-    protected $fillable = ["nama_cus" , "email"] ;
+    protected $fillable = ["nama_cus" , "email", "id_data_customer"] ;
 
 
     public function merk()

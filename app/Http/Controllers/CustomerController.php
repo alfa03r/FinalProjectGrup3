@@ -43,7 +43,7 @@ class CustomerController extends Controller
         Customer::create([
             'nama_cus' => $request->nama_cus,
             'email' => $request->email,
-            'id_data_customer' => $request->data_customer,
+            'id_data_customer' => $request->id_data_customer,
         ]);
 
         return redirect ('/customer')->with('success', 'Customer berhasil ditambahkan.');
@@ -83,4 +83,3 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('success', 'Customer berhasil dihapus.');
     }
 }
-
